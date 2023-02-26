@@ -18,12 +18,7 @@ int left = 0;
 ## 完数
 
 ```c
-#include<stdio.h>
-int main()
-{
     int i, j, s, n;  /*变量i控制选定数范围，j控制除数范围，s记录累加因子之和*/
-    printf("请输入所选范围上限：");
-    scanf("%d", &n);  /* n的值由键盘输入*/
     for( i=2; i<=n; i++ )
     {
         s=0;  /*保证每次循环时s的初值为0*/
@@ -34,10 +29,9 @@ int main()
                 s += j;
         }
         if(s == i)  /*判断因子这和是否和原数相等*/
-            printf("It's a perfect number:%d\n", i);
+		return i;
     }
     return 0;
-}
 ```
 
 ## 素数
@@ -55,31 +49,21 @@ int main()
             if (temp == 0) {
                 System.out.println(nums + "是素数");
             }
-
         }
-    }
 ```
 
 ## 水仙花数
 
 ```c
-#include <stdio.h>
-int main()
-{
     int hun, ten, ind, n;
-    printf("result is:");
     for( n=100; n<1000; n++ )  /*整数的取值范围*/
     {
         hun = n / 100;								//百位数
         ten = (n-hun*100) / 10;						//十位数	
         ind = n % 10;								//个位数
         if(n == hun*hun*hun + ten*ten*ten + ind*ind*ind)  /*各位上的立方和是否与原数n相等*/
-            printf("%d  ", n);
+            return n;
     }
-    printf("\n");
-   
-    return 0;
-}
 ```
 
 # 排序
@@ -105,7 +89,6 @@ int main()
                 }
             }
         }
-    }
 ```
 
 # 数学
@@ -113,12 +96,8 @@ int main()
 ## 最大公因数:最小公倍数
 
 ```java
-  public void commonNumber() {
-        Random random = new Random();
-        int num1 = random.nextInt(101);
-        int num2 = random.nextInt(101);
-        int temp1 = num1 = 36;
-        int temp2 = num2 = 96;
+        int temp1 = num1;
+        int temp2 = num2;
         /**
          * 九章算数：更相减损术 以少减多,更相减损,求其等也,以等数约之 等数约之,即除也,其所以相减者皆等数之重叠, 故以等数约之
          */
@@ -128,44 +107,33 @@ int main()
             } else {
                 temp2 -= temp1;
             }
-
         }
         /**
          * 几何原本：辗转相除法 1.a÷b，令r为所得余数（0≤r＜b）。若r=0，算法结束；b即为答案； 2.互换：置a←b，b←r，并返回第一步。
          */
         int remainder;
-
         while (temp1 != 0)
-
         {
-
             remainder = temp1 % temp2;
-
             temp1 = temp2;
-
             temp2 = remainder;
-
         }
-
-        System.out.println("最大公约数 = " + temp2);
-        System.out.println("最小公倍数 = " + (num1 * num2) / temp1);
+        return temp2;
+		return (num1 * num2) / temp1);
     }
 ```
 
 ## 阶乘
 
 ```java
-    public void Factorial() {
-        Random random = new Random();
-        int border = random.nextInt(11);
+        int border;
         int sum=0;
         int cardinality=1;
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= border; i++) {
             cardinality*=i;
             sum+=cardinality;
         }
-        System.out.println(sum);
-    }
+        return sum;
 ```
 
 # 位运算
